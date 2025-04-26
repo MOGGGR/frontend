@@ -1,10 +1,10 @@
 export const credits = [
-    { name: "Geovana Sophia Horodeski", position: "Desenvolvedor FrontEnd" },
-    { name: "Gustavo de Paula Gorges", position: "Desenvolvedor FrontEnd" },
-    { name: "Anthony Gabriel Loche dos Reis", position: "Desenvolvedor FrontEnd" },
-    { name: "Jontatas Silva Peraza", position: "Desenvolvedor FrontEnd" },
-    { name: "Gustavo Henrique Trentini", position: "Desenvolvedor BackEnd" },
-    { name: "Marcos Tirone Kruger", position: "Desenvolvedor BackEnd" },
-    { name: "Otto Micheletti", position: "Desenvolvedor BackEnd" },
-    { name: "Renan Silva Cardoso", position: "Desenvolvedor BackEnd" },
+    { name: "Otto Micheletti", position: "Desenvolvedor BackEnd", profile: "https://media.licdn.com/dms/image/v2/D4D03AQFv05jpfrNZvQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726100396004?e=1750896000&v=beta&t=9e_X93ZJmxQQ_0Zgby6duyaghusdUU2hZickX8bgRO4"},
+    { name: "Marcos Tirone Kruger", position: "Desenvolvedor BackEnd", profile: "https://media.licdn.com/dms/image/v2/D4D03AQEGfSGxqNbD5A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1671194703331?e=1750896000&v=beta&t=7KhAuZaFB5iUICgLFkixeFBc8PEbFA2t-Xd1GNYEfVs" },
+    { name: "Geovana Sophia Horodeski", position: "Desenvolvedor FrontEnd", profile: "https://media.licdn.com/dms/image/v2/D4D03AQGd5GAZAA41gg/profile-displayphoto-shrink_200_200/B4DZZlDKHkH4AY-/0/1745452049363?e=1750896000&v=beta&t=w4HrXyYLXp0oH8dDPSdozYwK5K2_hoGV2DBVQzhby-A"},
+    { name: "Jontatas Silva Peraza", position: "Desenvolvedor FrontEnd", profile: "https://media.licdn.com/dms/image/v2/D4E03AQEwg4hO-BcKnQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729708517924?e=1750896000&v=beta&t=VDQeuyxFmrDnFl8iqAG74yV90wBMGjLYjlstyop45fA"},
+    { name: "Gustavo Henrique Trentini", position: "Desenvolvedor BackEnd", profile: "https://media.licdn.com/dms/image/v2/D4D03AQHXGOMjOrXqzQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718332338674?e=1750896000&v=beta&t=t2ML5upAsKv5uvzfTc0bcsZvQ4vUNq6yS6FO5tpNruU" },
+    { name: "Anthony Gabriel Loche dos Reis", position: "Desenvolvedor FrontEnd", profile: "https://media.licdn.com/dms/image/v2/D4D03AQEL8q1vmrxBiQ/profile-displayphoto-shrink_800_800/B4DZXU0pXBG4Ac-/0/1743032326212?e=1750896000&v=beta&t=DI2-cxYTr4aORLXtc-DcGKBkTUgMx53jbFMH8Mpnz-o" },
+    { name: "Gustavo de Paula Gorges", position: "Desenvolvedor FrontEnd", profile: "https://media.licdn.com/dms/image/v2/D4E03AQG44SM9Pis9uA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718192171870?e=1750896000&v=beta&t=qZ3XWYNWELQWSOpMKWufOezvM2vlaSU38s1SpjOdS_w"},
+    { name: "Renan Silva Cardoso", position: "Desenvolvedor BackEnd", profile: "https://media.licdn.com/dms/image/v2/D4D03AQGi9hwvW10E0w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726567920019?e=1750896000&v=beta&t=vkkjbKJb15y8HUhqOvdzjtmB-3h_CVDQzxUlmrtWRUM" },
 ]

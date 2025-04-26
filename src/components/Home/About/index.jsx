@@ -25,7 +25,7 @@ function About() {
 						{index % 2 === 0 ? (
 							<>
 								<div className={styles["hex"]}>
-									<Hexagon size={100} />
+									<Hexagon size={100} src={credit.profile} />
 								</div>
 								<div className={styles["text"]}>
 									<div className={styles["name"]}>{credit.name}</div>
@@ -39,7 +39,7 @@ function About() {
 									<div className={styles["position"]}>{credit.position}</div>
 								</div>
 								<div className={styles["hex"]}>
-									<Hexagon size={100} />
+									<Hexagon size={100} src={credit.profile} />
 								</div>
 							</>
 						)}
