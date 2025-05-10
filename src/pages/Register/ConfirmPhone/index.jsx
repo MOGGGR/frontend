@@ -34,7 +34,7 @@ function ConfirmPhone() {
 						customStyle={{width: "100%"}}
 					/>
 
-					<Link className={styles["a"]} to={"/"}>
+					<Link className={styles["a"]} to={"/login"}>
 						já possui login?
 					</Link>
 				</div>
