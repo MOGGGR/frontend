@@ -2,6 +2,36 @@
   padding: 160px 40px 100px 40px;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   gap: 12vh;
   overflow-x: scroll;
+=======
+  justify-content: space-around;
+}
+
+.shadowUp {
+  width: 100%;
+  height: 30dvh;
+  object-fit: cover;
+  z-index: 10;
+  rotate: 180deg;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.shadowDown {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.disabled {
+  filter: brightness(0.7);
+>>>>>>> 4285b25 (Ajuste no css do card desabilitado - MAPDETAILS 7)
 }
