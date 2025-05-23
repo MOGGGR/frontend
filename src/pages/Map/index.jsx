@@ -9,7 +9,6 @@ import PlayerProfile from "@components/Map/PlayerProfile";
 import styles from "./style.module.css";
 
 const columns = [
-	{id: 4, title: "Backlog"},
 	{id: 3, title: "To-do"},
 	{id: 2, title: "In progress"},
 	{id: 1, title: "Done"}
@@ -46,13 +45,10 @@ function Map() {
 		return cards.filter((card) => {
 			if (columnTitle === "In progress") return card.id === level;
 			if (columnTitle === "Done") return card.id < level;
-			if (columnTitle === "To-do") return card.id === level + 1;
-			if (columnTitle === "Backlog") return card.id > level + 1;
+			if (columnTitle === "To-do") return card.id > level;
 			return false;
 		});
 	};
-
-	const visibleColumns = columns.filter((column) => getColumnCards(column.title).length > 0);
 
 	useEffect(() => {
 		if (lastCardRef.current) {
@@ -62,19 +58,26 @@ function Map() {
 
 	return (
 		<div ref={contentRef} className={styles["content"]}>
+			<img src="../../src/assets/Shadow Down.svg" className={styles["shadowUp"]} alt="" />
 			<PlayerProfile />
-			{visibleColumns.map((column) => {
-				const columnCards = getColumnCards(column.title);
-				return (
-					<Column key={column.id} title={column.title} length={columnCards.length}>
-						{columnCards.map((card, index) => (
-							<Link key={card.title} to={card.route}>
-								<Card difficulty={card.difficulty} {...card} ref={index === cards.length - 1 ? lastCardRef : null} />
-							</Link>
-						))}
-					</Column>
-				);
-			})}
+			<div className={styles["collumnList"]}>
+				{columns.map((column) => {
+					const columnCards = getColumnCards(column.title);
+					return (
+						<Column key={column.id} title={column.title} length={columnCards.length}>
+							{columnCards.map((card, index) => {
+								const disabled = column.title == "To-do";
+								return (
+									<Link key={card.title} to={!disabled ? card.route : ""} className={disabled ? styles["disabled"] : ""}>
+										<Card difficulty={card.difficulty} {...card} ref={index === cards.length - 1 ? lastCardRef : null} />
+									</Link>
+								);
+							})}
+						</Column>
+					);
+				})}
+			</div>
+			<img src="../../src/assets/Shadow Down.svg" className={styles["shadowDown"]} alt="" />
 		</div>
 	);
 }
