@@ -1,11 +1,15 @@
 .content {
-  padding: 160px 40px 100px 40px;
+	padding: 6dvh 10%;
+	display: flex;
+	flex-direction: column;
+	gap: 4vh;
+	justify-content: center;
+}
+
+.collumnList {
   display: flex;
+  height: 100%;
   flex-direction: column;
-<<<<<<< HEAD
-  gap: 12vh;
-  overflow-x: scroll;
-=======
   justify-content: space-around;
 }
 
@@ -33,5 +37,4 @@
 
 .disabled {
   filter: brightness(0.7);
->>>>>>> 4285b25 (Ajuste no css do card desabilitado - MAPDETAILS 7)
 }
