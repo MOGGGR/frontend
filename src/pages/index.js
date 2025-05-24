@@ -6,5 +6,6 @@ import Wordle from './Wordle';
 import Register from './Register/Register';
 import ConfirmPhone from './Register/ConfirmPhone';
 import Phrase from './Phrase';
+import Debug from './Debug';
 
-export {Home, Register, ConfirmPhone, Map, Wordle, Phrase, Quiz, Memory};
+export {Home, Register, ConfirmPhone, Map, Wordle, Phrase, Quiz, Memory, Debug};
