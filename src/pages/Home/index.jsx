@@ -18,6 +18,12 @@ function Home() {
 	const [isPrizesModalOpen, setIsPrizesModalOpen] = useState(false);
 	const getToken = useAuthStore((state) => state.token);
 
+	const handleNavigation = () => {
+		if (getToken === null) return navigate("/register");
+		if (level === 0) return navigate("/history");
+		return navigate("/map");
+	};
+
 	return (
 		<div className={styles["content"]}>
 			<img className={styles["logo-soft"]} src="../../../src/assets/SoftExtendedLogo.png" alt="Logo da SoftExpert" />
@@ -33,7 +39,7 @@ function Home() {
 					type="primary"
 					size="large"
 					icon="bx-play"
-					onClick={() => (getToken === null ? navigate("/register") : navigate("/map"))}
+					onClick={handleNavigation}
 				/>
 				<div className={styles["buttons-right"]}>
 					<Button type="primary" size="medium" icon="bx-trophy" onClick={() => setIsPrizesModalOpen(true)} />

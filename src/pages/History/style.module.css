@@ -1,0 +1,10 @@
+.content {
+	display: flex;
+	height: -webkit-fill-available;
+	height: -moz-available;
+	height: 100%;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	overflow: hidden;
+}
