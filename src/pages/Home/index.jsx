@@ -19,6 +19,12 @@ function Home() {
 	const getToken = useAuthStore((state) => state.token);
 	const userData = useAuthStore((state) => state.userData);
 
+	const handleNavigation = () => {
+		if (getToken === null) return navigate("/register");
+		if (level === 0) return navigate("/history");
+		return navigate("/map");
+	};
+
 	return (
 		<div className={styles["content"]}>
 			<img className={styles["logo-soft"]} src={SoftExtendedLogo} alt="Logo da SoftExpert" />

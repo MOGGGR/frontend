@@ -9,5 +9,6 @@ import ConfirmEmail from "./Auth/ConfirmEmail";
 import Phrase from "./Phrase";
 import NotFoundPage from "./NotFound";
 import ErrorPage from "./Error";
+import History from './History';
 
-export {Home, Register, Login, ConfirmEmail, Map, NotFoundPage, ErrorPage, Wordle, Phrase, Quiz, Memory};
+export {Home, History, Register, Login, ConfirmEmail, Map, NotFoundPage, ErrorPage, Wordle, Phrase, Quiz, Memory};

@@ -4,7 +4,7 @@ import Frame from "@components/common/Frame";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 
-import {Home, Map, Wordle, Register, ConfirmEmail, Login, Phrase, Quiz, Memory, NotFoundPage, ErrorPage} from "../pages";
+import {Home, Map, Wordle, Register, ConfirmEmail, Login, Phrase, Quiz, Memory, History, NotFoundPage, ErrorPage} from "../pages";
 
 const routes = createBrowserRouter([
 	{
@@ -30,6 +30,7 @@ const routes = createBrowserRouter([
 					{path: "/wordle", element: <Wordle />},
 					{path: "/memory", element: <Memory />},
 					{path: "/phrase", element: <Phrase />},
+					{path: "/history", element: <History />},
 					{path: "/quiz", element: <Quiz />}
 				]
 			}
