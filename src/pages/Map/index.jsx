@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from "react";
-import {Link} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 
 import Card from "@components/Map/Card";
 import Column from "@components/Map/Column";
@@ -56,6 +56,12 @@ function Map() {
 		}
 	}, []);
 
+	const handleNavigation = (disabled, card) => {
+		if (disabled) return "";
+		if (level > card.id) return card.route; // Se o jogador estiver jogando novamente a mesma fase, pula a história
+		return "/history";
+	}
+
 	return (
 		<div ref={contentRef} className={styles["content"]}>
 			<img src="../../src/assets/Shadow Down.svg" className={styles["shadowUp"]} alt="" />
@@ -68,7 +74,7 @@ function Map() {
 							{columnCards.map((card, index) => {
 								const disabled = column.title == "To-do";
 								return (
-									<Link key={card.title} to={!disabled ? card.route : ""} className={disabled ? styles["disabled"] : ""}>
+									<Link key={card.title} to={handleNavigation(disabled, card)} className={disabled ? styles["disabled"] : ""}>
 										<Card difficulty={card.difficulty} {...card} ref={index === cards.length - 1 ? lastCardRef : null} />
 									</Link>
 								);

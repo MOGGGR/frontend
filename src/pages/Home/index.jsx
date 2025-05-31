@@ -19,8 +19,8 @@ function Home() {
 	const getToken = useAuthStore((state) => state.token);
 
 	const handleNavigation = () => {
-		if (getToken === null) return navigate("/register");
-		if (level === 0) return navigate("/history");
+		if (getToken === null) return navigate("/register"); // se o user não estiver loggado: Vai pro registro
+		if (level === 0) return navigate("/history"); // se o jogador não jogou nenhum jogo, vai pra historia inicial
 		return navigate("/map");
 	};
 
