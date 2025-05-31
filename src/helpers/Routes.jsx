@@ -2,7 +2,7 @@ import {createBrowserRouter} from "react-router-dom";
 
 import Frame from "@components/common/Frame";
 import ProtectedRoute from "./ProtectedRoute";
-import {Home, Map, Wordle, Register, ConfirmPhone, Login, Phrase, Quiz, Memory} from "../pages";
+import {Home, Map, Wordle, Register, ConfirmPhone, Login, Phrase, Quiz, Memory, History} from "../pages";
 
 const routes = createBrowserRouter([
 	{
@@ -20,7 +20,8 @@ const routes = createBrowserRouter([
 					{path: "/wordle", element: <Wordle />},
 					{path: "/memory", element: <Memory />},
 					{path: "/phrase", element: <Phrase />},
-					{path: "/quiz", element: <Quiz />}
+					{path: "/quiz", element: <Quiz />},
+					{path: "/history", element: <History />}
 				]
 			}
 		]
