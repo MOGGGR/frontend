@@ -13,12 +13,17 @@ const routes = createBrowserRouter([
 			{path: "/register", element: <Register />},
 			{path: "/login", element: <Login />},
 			{path: "/confirm-phone", element: <ConfirmPhone />},
-			{path: "/map", element: <Map />},
-			{path: "/wordle", element: <Wordle />},
-			{path: "/memory", element: <Memory />},
-			{path: "/phrase", element: <Phrase />},
-			{path: "/quiz", element: <Quiz />},
-			{path: "/history", element: <History />},
+			{
+				element: <ProtectedRoute />,
+				children: [
+					{path: "/map", element: <Map />},
+					{path: "/wordle", element: <Wordle />},
+					{path: "/memory", element: <Memory />},
+					{path: "/phrase", element: <Phrase />},
+					{path: "/quiz", element: <Quiz />},
+					{path: "/history", element: <History />}
+				]
+			}
 		]
 	}
 ]);
