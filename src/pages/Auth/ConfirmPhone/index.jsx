@@ -7,16 +7,16 @@ import {useAuthStore} from "@stores/useAuth";
 import Button from "@components/common/Button";
 import {createAuthController} from "@controllers/auth";
 import SoftExtendedLogo from "../../../assets/SoftExtendedLogo.png";
-import {formatPhone, unformatPhone, validatePhone} from "@components/common/Input/validTypes";
+import {formatPhone, unformatPhone, validateEmail, validatePhone} from "@components/common/Input/validTypes";
 
 import styles from "../style.module.css";
 
-function ConfirmPhone() {
+function ConfirmEmail() {
 	const navigate = useNavigate();
-	const {insertPhone, confirmPhone, resendCode} = createAuthController();
+	const {insertEmail, confirmEmail, resendCode} = createAuthController();
 
-	const [step, setStep] = useState("phone");
-	const [phone, setPhone] = useState("");
+	const [step, setStep] = useState("email");
+	const [email, setEmail] = useState("");
 	const [code, setCode] = useState("");
 	const [wasSubmitted, setWasSubmitted] = useState(false);
 	const [showError, setShowError] = useState(false);
@@ -26,15 +26,14 @@ function ConfirmPhone() {
 
 	const userData = useAuthStore((state) => state.userData);
 
-	const handlePhoneChange = (e) => {
-		const formattedPhone = formatPhone(e.target.value);
-		setPhone(formattedPhone);
+	const handleEmailChange = (e) => {
+		setEmail(e);
 	};
 
-	const handlePhoneSubmit = async () => {
-		if (validatePhone(phone)) {
-			const cleanPhone = unformatPhone(phone);
-			const response = await insertPhone({phone: cleanPhone});
+	const handleEmailSubmit = async () => {
+		if (validateEmail(email)) {
+
+			const response = await insertEmail({email: email});
 
 			if (response) {
 				setStep("code");
@@ -52,7 +51,7 @@ function ConfirmPhone() {
 
 	const handleCodeSubmit = async () => {
 		setWasSubmitted(true);
-		const response = await confirmPhone({code});
+		const response = await confirmEmail({code});
 		if (response) {
 			setIsCorrect(true);
 			setButtonLabel(":)");
@@ -79,9 +78,9 @@ function ConfirmPhone() {
 	}, [resendTimer]);
 
 	useEffect(() => {
-		if (userData.fgPhoneVerified === 1) {
-			setStep("phone");
-		} else if (userData.fgPhoneVerified === 2) {
+		if (userData.fgEmailVerified === 1) {
+			setStep("email");
+		} else if (userData.fgEmailVerified === 2) {
 			setStep("code");
 		}
 	}, [userData]);
@@ -90,16 +89,16 @@ function ConfirmPhone() {
 		<div className={styles["container"]}>
 			<img className={styles["logo"]} src={SoftExtendedLogo} alt="Logo da Softexpert" />
 			<div className={styles["content"]}>
-				{step === "phone" && (
+				{step === "email" && (
 					<>
-						<Input label="Telefone" value={phone} type="tel" onChange={handlePhoneChange} placeholder="(99) 99999-9999" />
+						<Input label="Email" value={email} type="email" onChange={handleEmailChange} placeholder="fulano@algo.com" />
 						<Button
-							isDisabled={!validatePhone(phone)}
+							isDisabled={!validateEmail(email)}
 							type="primary"
 							size="small"
 							customStyle={{width: "100%"}}
 							text="Enviar código"
-							onClick={handlePhoneSubmit}
+							onClick={handleEmailSubmit}
 						/>
 					</>
 				)}
@@ -116,7 +115,7 @@ function ConfirmPhone() {
 								onChange={handleCodeChange}
 								disabled={isCorrect}
 							/>
-							<span className={styles["help-text"]}>Enviado para o telefone: {formatPhone(phone)}</span>
+							<span className={styles["help-text"]}>Enviado para o email: { email }</span>
 						</div>
 						<Button
 							isDisabled={code.length < 4 || isCorrect}
@@ -149,4 +148,4 @@ function ConfirmPhone() {
 	);
 }
 
-export default ConfirmPhone;
+export default ConfirmEmail;
