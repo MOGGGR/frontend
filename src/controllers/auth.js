@@ -45,10 +45,10 @@ export function createAuthController() {
 		}
 	}
 
-	async function insertPhone(data) {
+	async function insertEmail(data) {
 		try {
 			setLoading(true);
-			const response = await authRepository.insertPhone(data, getToken);
+			const response = await authRepository.insertEmail(data, getToken);
 			setToken(response.token);
 			setUserData(jwtDecode(response.token));
 			return true;
@@ -61,10 +61,10 @@ export function createAuthController() {
 		}
 	}
 
-	async function confirmPhone(data) {
+	async function confirmEmail(data) {
 		try {
 			setLoading(true);
-			const response = await authRepository.confirmPhone(data, getToken);
+			const response = await authRepository.confirmEmail(data, getToken);
 			setToken(response.token);
 			setUserData(jwtDecode(response.token));
 			return true;
@@ -107,9 +107,9 @@ export function createAuthController() {
 	return {
 		login,
 		register,
-		confirmPhone,
+		confirmEmail,
 		fetchUserData,
-		insertPhone,
+		insertEmail,
 		resendCode,
 		loading
 	};

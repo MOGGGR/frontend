@@ -12,13 +12,13 @@ export function AuthRepository() {
 		return response.data;
 	}
 
-	async function insertPhone(data) {
-		const response = await axiosInstance.post(`/user/insert-phone`, data);
+	async function insertEmail(data) {
+		const response = await axiosInstance.post(`/user/insert-email`, data);
 		return response.data;
 	}
 
-	async function confirmPhone(data) {
-		const response = await axiosInstance.post(`/user/confirm-phone`, data);
+	async function confirmEmail(data) {
+		const response = await axiosInstance.post(`/user/confirm-email`, data);
 		return response.data;
 	}
 
@@ -34,10 +34,10 @@ export function AuthRepository() {
 
 	return {
 		login,
-		confirmPhone,
+		confirmEmail,
 		resendCode,
 		fetchUserData,
-		insertPhone,
+		insertEmail,
 		register
 	};
 }

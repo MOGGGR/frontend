@@ -5,8 +5,8 @@ import Quiz from './Quiz';
 import Wordle from './Wordle';
 import Register from './Auth/Register';
 import Login from './Auth/Login';
-import ConfirmPhone from './Auth/ConfirmPhone';
+import ConfirmEmail from './Auth/ConfirmPhone';
 import Phrase from './Phrase';
 
 
-export {Home, Register, Login, ConfirmPhone, Map, Wordle, Phrase, Quiz, Memory};
+export {Home, Register, Login, ConfirmEmail, Map, Wordle, Phrase, Quiz, Memory};

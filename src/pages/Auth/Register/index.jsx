@@ -70,7 +70,7 @@ function Register() {
 		const response = await register(userData);
 
 		if (response) {
-			navigate("/confirm-phone");
+			navigate("/confirm-email");
 		}
 	};
 

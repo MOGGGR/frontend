@@ -52,10 +52,10 @@ function Login() {
 
 		const response = await login(userData);
 		if (response) {
-			if (response.fgPhoneVerified === 3) {
+			if (response.fgEmailVerified === 3) {
 				navigate("/map");
 			} else {
-				navigate("/confirm-phone");
+				navigate("/confirm-email");
 			}
 		}
 	};
