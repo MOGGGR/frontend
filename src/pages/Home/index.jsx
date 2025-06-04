@@ -17,7 +17,8 @@ function Home() {
 	const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
 	const [isPrizesModalOpen, setIsPrizesModalOpen] = useState(false);
 	const getToken = useAuthStore((state) => state.token);
-  const userData = useAuthStore((state) => state.userData)
+	const getUserData = useAuthStore((state) => state.getUserData)
+	const userData = getUserData();
 
 	return (
 		<div className={styles["content"]}>

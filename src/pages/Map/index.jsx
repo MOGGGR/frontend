@@ -39,9 +39,11 @@ const cards = [
 function Map() {
 	const navigate = useNavigate();
 	const {fetchUserData} = createAuthController();
-	const userData = useAuthStore((state) => state.userData);
+	const userData = useAuthStore((state) => state.userMapRouteData);
 	const contentRef = useRef(null);
 	const lastCardRef = useRef(null);
+
+	console.log(userData)
 
 	useEffect(() => {
 		fetchUserData();

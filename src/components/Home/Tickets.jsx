@@ -6,7 +6,8 @@ import Ticket from "../../assets/Vector.svg";
 import styles from "./style.module.css";
 
 function Tickets() {
-	const userData = useAuthStore((state) => state.userData);
+	const getUserData = useAuthStore((state) => state.getUserData)
+	const userData = getUserData();
 
 	return (
 		<div className={styles["tickets"]}>

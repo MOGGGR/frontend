@@ -9,11 +9,19 @@ const cards = [
 
 export default function ProtectedRoute() {
 	const token = useAuthStore((state) => state.token);
-	const userData = useAuthStore((state) => state.userData);
+	const getUserData = useAuthStore((state) => state.getUserData)
+	const userData = getUserData();
 	const location = useLocation();
 
+	console.log(location);
+	console.log(!token || !userData);
+
 	if (!token || !userData) return <Navigate to="/register" replace />;
-	if (userData.fgEmailVerified === 1) return <Navigate to="/confirm-email" replace />;
+	console.log('111');
+	if (userData.fgEmailVerified === 2 && location.pathname === "/confirm-email") return <Navigate to="/" replace />;
+	console.log('222');
+	if (userData.fgEmailVerified === 1 && location.pathname !== "/confirm-email") return <Navigate to="/confirm-email" replace />;
+	console.log('333');
 
 	const userTasks = userData.tasks || [];
 	const currentTaskId = userTasks[userTasks.length - 1];

@@ -1,26 +1,47 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware';
+import {jwtDecode} from "jwt-decode";
+import {useToast} from "@components/common/Toast/ToastProvider";
 
 export const useAuthStore = create(
-  persist(
-    (set) => ({
-      token: null,
-      userData: null,
+	persist(
+		(set, get) => ({
+			token: null,
+			userData: null,
 
-      setToken: (token) => set({ token }),
-      setUserData: (userData) => set({ userData }),
+			userMapRouteData: {
+				firstName: 'Foo',
+				lastName: 'Bar',
+				tickets: 0
+			},
 
-      clearAuth: () =>
-        set({
-          token: null,
-          userData: null,
-        }),
-    }),
-    {
-      name: 'auth-storage',
-      // partialize: (state) => ({
-      //   token: state.token
-      // }),
-    }
-  )
+			setToken: (token) => set({ token }),
+			setUserData: (userData) => set({ userData }),
+			setUserMapRouteData: (userMapRouteData) => set({ userMapRouteData }),
+
+			getUserData: () => {
+				const token = get().token
+				if (!token) return null
+
+				try {
+
+					return jwtDecode(token)
+				} catch (err) {
+					console.error('Token inválido:', err)
+					return null
+				}
+			},
+			clearAuth: () =>
+				set({
+					token: null,
+					userData: null,
+				}),
+		}),
+		{
+			name: 'auth-storage',
+			// partialize: (state) => ({
+			//   token: state.token
+			// }),
+		}
+	)
 )

@@ -13,6 +13,7 @@ export function createAuthController() {
 	const setToken = useAuthStore((state) => state.setToken);
 	const getToken = useAuthStore((state) => state.token);
 	const setUserData = useAuthStore((state) => state.setUserData);
+	const setUserMapRouteData = useAuthStore((state) => state.setUserMapRouteData);
 
 	async function login(data) {
 		try {
@@ -96,7 +97,7 @@ export function createAuthController() {
 		try {
 			setLoading(true);
 			const response = await authRepository.fetchUserData();
-			setUserData(response);
+			setUserMapRouteData(response);
 		} catch (e) {
 			console.error("Original error at fetchUserData: ", e);
 			const error = getErrorMessage(e);

@@ -2,6 +2,7 @@ import React, {useEffect, useState, useRef} from "react";
 
 import Hexagon from "./HexagonMemory";
 import {GameRepository} from "../../repositories/games.js";
+import Loading from "../../components/common/Button/Loading";
 
 import styles from "./style.module.css";
 
@@ -114,6 +115,12 @@ function GridMemory({setGameFinished}) {
 		}
 		return rows;
 	};
+
+	if (!cards.length) {
+		return (
+			<Loading/>
+		);
+	}
 
 	return (
 		<div className={styles["content"]}>

@@ -13,7 +13,8 @@ import styles from "../style.module.css";
 function ConfirmEmail() {
 	const navigate = useNavigate();
 	const {confirmEmail, resendCode} = createAuthController();
-	const userData = useAuthStore((state) => state.userData)
+	const getUserData = useAuthStore((state) => state.getUserData)
+	const userData = getUserData();
 
 	const [code, setCode] = useState("");
 	const [wasSubmitted, setWasSubmitted] = useState(false);

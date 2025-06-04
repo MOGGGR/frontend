@@ -5,7 +5,8 @@ import Ticket from "../../../assets/Vector.svg";
 import style from "./style.module.css";
 
 function GameHeader({ task, timer }) {
-	const userData = useAuthStore((state) => state.userData);
+	const getUserData = useAuthStore((state) => state.getUserData)
+	const userData = getUserData();
 
 	const formatTime = (time) => {
 		const minutes = Math.floor(time / 60);

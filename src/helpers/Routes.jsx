@@ -28,7 +28,6 @@ const routes = createBrowserRouter([
 				children: [
 					{ path: "/register", element: <Register /> },
 					{ path: "/login", element: <Login /> },
-					{ path: "/confirm-email", element: <ConfirmEmail /> }
 				]
 			},
 
@@ -39,7 +38,8 @@ const routes = createBrowserRouter([
 					{ path: "/wordle", element: <Wordle /> },
 					{ path: "/memory", element: <Memory /> },
 					{ path: "/phrase", element: <Phrase /> },
-					{ path: "/quiz", element: <Quiz /> }
+					{ path: "/quiz", element: <Quiz /> },
+					{ path: "/confirm-email", element: <ConfirmEmail /> }
 				]
 			}
 		]
