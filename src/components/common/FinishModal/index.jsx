@@ -33,12 +33,20 @@ function FinishModal({ time, showModal }) {
 				<div className={styles["header"]}>
 					<h2>Task Finalizada!</h2>
 				</div>
-				<span className={styles["message"]}>Você terminou em:</span>
-				<div className={styles["time"]}>
-					<i class="bx bx-timer"></i>
-					<span>{formatTime(time)}</span>
-				</div>
+				<span className={styles["messageHeader"]}>
+					Parabéns!
+				</span>
+				<span className={styles["message"]}>
+					Você completou sua tarefa, onde você irá em sua jornada expert agora?
+				</span>
 				<div className={styles["buttons"]}>
+					<Button
+						customStyle={{ height: "100%", aspectRatio: "1/1" }}
+						size="medium"
+						icon="bx-home"
+						type="primary"
+						onClick={() => navigate("/map")}
+					/>
 					<Button
 						customStyle={{ width: "100%" }}
 						text="Jogar novamente"
@@ -46,7 +54,6 @@ function FinishModal({ time, showModal }) {
 						type="primary"
 						onClick={() => window.location.reload()}
 					/>
-					<Button size="medium" icon="bx-home" type="primary" onClick={() => navigate("/map")} />
 				</div>
 			</div>
 		</div>

@@ -42,13 +42,27 @@
 
 .buttons {
   display: flex;
-  gap: 7px;
+  gap: 5%;
   width: 100%;
   padding:20px;
+  justify-content: center;
+}
+
+.messageHeader{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(180deg, var(--expert-horizon), var(--future-flow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
 .message {
-  margin-top: 10px;
+  text-align: center;
 }
 
 .time {

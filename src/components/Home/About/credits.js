@@ -1,8 +1,8 @@
 export const credits = [
-  { name: "Marcos Tirone Kruger", position: "Desenvolvedor Back-End", profile: "src/assets/devs/marcoskruger.jpeg" },
-  { name: "Geovana Horodeski", position: "Dev Front-End & UI/UX", profile: "src/assets/devs/geovanahorodeski.jpeg" },
-  { name: "Jontatas Silva Peraza", position: "Desenvolvedor Front-End", profile: "src/assets/devs/jonatasperaza.jpeg" },
-  { name: "Gustavo Gorges", position: "Dev Front-End & UI/UX", profile: "src/assets/devs/gustavogorges.jpeg" },
-  { name: "Gustavo Trentini", position: "Desenvolvedor Back-End", profile: "src/assets/devs/gustavotrentini.jpeg" },
-  { name: "Anthony Loche dos Reis", position: "Desenvolvedor Front-End", profile: "src/assets/devs/anthonyreis.jpeg" },
+  { name: "Marcos Tirone Kruger", position: "Desenvolvedor Back-End", profile: "https://media.licdn.com/dms/image/v2/D4D03AQEGfSGxqNbD5A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1671194703331?e=1758153600&v=beta&t=PMF58Y-GCkSEMdJV-QMDENebi8TYJfPVJ_shR245EBU" },
+  { name: "Geovana Horodeski", position: "Dev Front-End & UI/UX", profile: "https://media.licdn.com/dms/image/v2/D4D03AQH76339n2lW2w/profile-displayphoto-shrink_800_800/B4DZZ6PUNMH4Ac-/0/1745807558123?e=1758153600&v=beta&t=fjYsZhY7DukhK9tQkwp7bMjMu9xPCUS3qCknIqzJcJY" },
+  { name: "Jontatas Silva Peraza", position: "Desenvolvedor Front-End", profile: "https://media.licdn.com/dms/image/v2/D4E03AQEwg4hO-BcKnQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729708517924?e=1758153600&v=beta&t=7_X6H0QhHrnhJg84c9bg7Ykn67Wsd0SxXecHSaTPwGM" },
+  { name: "Gustavo Gorges", position: "Dev Front-End & UI/UX", profile: "https://media.licdn.com/dms/image/v2/D4E03AQG44SM9Pis9uA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718192171870?e=1758153600&v=beta&t=uh1YwgL_4GXgfCoX-499aAoLGrYj2_2EqXNIKOnlays" },
+  { name: "Gustavo Trentini", position: "Desenvolvedor Back-End", profile: "https://media.licdn.com/dms/image/v2/D4D03AQHXGOMjOrXqzQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718332338674?e=1758153600&v=beta&t=4a7F3nzsXMGnNa_MtRr_0F1KCDZqxd35vqhTLf3upnc" },
+  { name: "Anthony Loche dos Reis", position: "Desenvolvedor Front-End", profile: "https://media.licdn.com/dms/image/v2/D4D03AQEL8q1vmrxBiQ/profile-displayphoto-shrink_800_800/B4DZXU0pXBG4Ac-/0/1743032326212?e=1758153600&v=beta&t=veCZs0OhC_1QYWQZJuAxtkQHUEQL4sFQ_AhoZ3NvXFk" },
 ];
