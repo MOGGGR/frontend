@@ -7,7 +7,7 @@ import Button from "../Button";
 import styles from "./styles.module.css";
 import confetti from "canvas-confetti";
 
-function FinishModal({ showModal }) {
+function FinishModal({ showModal, correctWord, playerWin }) {
 	const navigate = useNavigate();
 
 	const modalClasses = classNames(styles["all"], {
@@ -15,32 +15,41 @@ function FinishModal({ showModal }) {
 	});
 
 	useEffect(() => {
-		if(showModal) {
+		if (showModal) {
 			confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
 		}
 	}, [showModal])
 
-	return  (
+	const headerText = playerWin ? "Você conseguiu!" : "Não foi dessa vez :(";
+	const mainTitle = playerWin ? "Parabéns" : "Tente novamente!";
+	const mainText = playerWin ? (
+		<>
+			Você acertou, a palavra era:{" "}
+			<span className={styles["highlight"]}>{correctWord}</span>
+			{" "}vamos jogar de novo?
+		</>
+	) : (
+		<>
+			Você não conseguiu descobrir a palavra, ela era:{" "}
+			<span className={styles["highlight"]}>{correctWord}</span>
+			{", tente mais uma vez!"}
+		</>
+	);
+
+	return (
 		<div className={modalClasses}>
 			<div className={styles["content"]}></div>
 			<div className={styles["modal"]}>
 				<div className={styles["header"]}>
-					<h2>Task Finalizada!</h2>
+					<h2>{headerText}</h2>
 				</div>
 				<span className={styles["messageHeader"]}>
-					Parabéns!
+					{mainTitle}
 				</span>
 				<span className={styles["message"]}>
-					Você completou sua tarefa, onde você irá em sua jornada expert agora?
+					{mainText}
 				</span>
 				<div className={styles["buttons"]}>
-					<Button
-						customStyle={{ height: "100%", aspectRatio: "1/1" }}
-						size="medium"
-						icon="bx-home"
-						type="primary"
-						onClick={() => navigate("/map")}
-					/>
 					<Button
 						customStyle={{ width: "100%" }}
 						text="Jogar novamente"

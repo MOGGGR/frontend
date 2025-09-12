@@ -1,14 +1,13 @@
-import {useState, useCallback, useEffect} from "react";
+import { useState, useCallback, useEffect } from "react";
 
 import Grid from "@components/Wordle";
 import Keyboard from "@components/Wordle/Keyboard";
 import GameHeader from "@components/common/GameHeader";
 
-import {LetterStatusEnum} from "../../constants/wordleConstants";
-import {GameRepository} from "../../repositories/games";
+import { LetterStatusEnum } from "../../constants/wordleConstants";
 import FinishModal from "@components/common/FinishModal";
 import Help from "@components/Wordle/Help";
-import {useAuthStore} from "@stores/useAuth";
+import words from "./words";
 
 import styles from "./style.module.css"
 
@@ -18,7 +17,7 @@ const CONFIG = {
 	SECRET_WORD: "LIVRO"
 };
 
-const getDefaultGuess = () => new Array(CONFIG.WORD_LENGTH).fill({char: ""});
+const getDefaultGuess = () => new Array(CONFIG.WORD_LENGTH).fill({ char: "" });
 
 const filledCharacterCount = (guess) => guess.reduce((count, item) => (item.char === "" ? count - 1 : count), CONFIG.WORD_LENGTH);
 
@@ -30,6 +29,11 @@ const removeGuessCharacter = (guess, index) => {
 	return guess.map((item, i) => (i === index ? { ...item, char: "" } : item));
 };
 
+function selectCorrectWord() {
+  const i = Math.floor(Math.random() * words.length);
+  return words[i];
+}
+
 
 export default function Wordle() {
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -37,24 +41,29 @@ export default function Wordle() {
 	const [currentGuess, setCurrentGuess] = useState(getDefaultGuess());
 	const [isGameOver, setIsGameOver] = useState(false);
 	const [isHelpOpen, setIsHelpOpen] = useState(false);
-	const markLastTaskAsPlayed = useAuthStore((state) => state.markLastTaskAsPlayed);
+	const [correctWord, setCorrectWord] = useState("");
+	const [playerWin, setPlayerWin] = useState(false);
 
-	const {getTermData, termGuess} = GameRepository();
+	const checkWord = (word) => {
+		let result = [];
+		const correctArr = correctWord.split("");
 
-	useEffect(() => {
-		if (isGameOver) {
-			markLastTaskAsPlayed();
+		for (let i = 0; i < word.length; i++) {
+			const char = word[i];
+			if (char === correctArr[i]) {
+				result.push({ char, status: LetterStatusEnum.CORRECT });
+			} else if (correctArr.includes(char)) {
+				result.push({ char, status: LetterStatusEnum.INCORRECT_POSITION });
+			} else {
+				result.push({ char, status: LetterStatusEnum.DONT_EXIST });
+			}
 		}
-	}, [isGameOver]);
+		return result;
+	};
 
 	useEffect(() => {
-		const fetchData = async () => {
-			const {tries} = await getTermData();
-			setGuesses(tries);
-		};
-
-		fetchData();
-	}, []);
+		setCorrectWord(selectCorrectWord())
+	}, [isGameOver]);
 
 	const handleKeyPress = useCallback(
 		async (key) => {
@@ -66,7 +75,7 @@ export default function Wordle() {
 				if (filledCharacterCount(currentGuess) === CONFIG.WORD_LENGTH) {
 					const fullWord = currentGuess.reduce((word, item) => word + item.char, "");
 
-					const guessResult = await termGuess({guess: fullWord});
+					const guessResult = checkWord(fullWord);
 
 					const newGuesses = [...guesses, guessResult];
 					setGuesses(newGuesses);
@@ -76,7 +85,13 @@ export default function Wordle() {
 					const playerWon = guessResult.every((letter) => letter.status === LetterStatusEnum.CORRECT);
 					const maxAttemptsReached = newGuesses.length >= CONFIG.MAX_ATTEMPTS;
 
-					if (playerWon || maxAttemptsReached) {
+					if (playerWon) {
+						setPlayerWin(true)
+						setIsGameOver(true);
+					}
+
+					if (maxAttemptsReached) {
+						setPlayerWin(false)
 						setIsGameOver(true);
 					}
 				}
@@ -100,7 +115,7 @@ export default function Wordle() {
 
 	return (
 		<div className={styles["container"]}>
-			<GameHeader task="Task #3" isHelpOpen={isHelpOpen} setIsHelpOpen={setIsHelpOpen} ContentHelp={Help} />
+			<GameHeader isHelpOpen={isHelpOpen} setIsHelpOpen={setIsHelpOpen} ContentHelp={Help} />
 			<Grid
 				guesses={guesses}
 				isGameOver={isGameOver}
@@ -110,7 +125,7 @@ export default function Wordle() {
 				setActiveIndex={setActiveIndex}
 			/>
 			<Keyboard onKeyPress={handleKeyPress} guesses={guesses} getLetterColor={getColor} />
-			<FinishModal showModal={isGameOver} />
+			<FinishModal showModal={isGameOver} correctWord={correctWord} playerWin={playerWin} />
 		</div>
 	);
 }
