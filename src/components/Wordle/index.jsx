@@ -10,7 +10,7 @@ const WORD_LENGTH = 5;
 function Grid({ guesses, currentGuess, getLetterColor, isGameOver, activeIndex, setActiveIndex }) {
 	return (
 		<div className={styles.grid}>
-			<span className={styles.label}>Descubra a palavra do mundo tech</span>
+			<span className={styles.label}>Descubra a palavra!</span>
 
 			{Array.from({ length: MAX_ATTEMPTS }).map((_, rowIndex) => {
 				const isActiveRow = !isGameOver && rowIndex === guesses.length;

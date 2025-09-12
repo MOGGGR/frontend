@@ -10,6 +10,11 @@
   transition: all 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
+.highlight {
+  color: var(--expert-horizon);
+  font-size: 1.5rem;
+}
+
 .all.show {
   bottom: 0;
   opacity: 1;
@@ -145,6 +150,10 @@
 
   .messageHeader {
     margin-top: 3vh;
+    font-size: 2.6em !important;
+  }
+
+  .highlight {
     font-size: 2.6em !important;
   }
 
